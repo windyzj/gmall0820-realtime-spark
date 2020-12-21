@@ -31,7 +31,6 @@ public class JsonTest {
         String jsonstr = JSON.toJSONString(movie);
         System.out.println(jsonstr);
 
-
         Movie movie1 = JSON.parseObject(jsonstr, Movie.class);
         System.out.println(movie1);
         //JsonObject
