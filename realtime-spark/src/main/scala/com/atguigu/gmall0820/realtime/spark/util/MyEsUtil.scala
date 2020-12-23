@@ -46,7 +46,7 @@ object MyEsUtil {
   def saveBulkData(dataList: List[(Any, String)], indexName: String): Unit = {
     if (dataList != null && dataList.size > 0) {
       val jest: JestClient = getClient
-      val bulkBuilder = new Bulk.Builder
+      val bulkBuilder = new Bulk.Builder()
       for ((data, id) <- dataList) {
         val index: Index = new Index.Builder(data)
           .index(indexName).`type`("_doc").id(id).build()
