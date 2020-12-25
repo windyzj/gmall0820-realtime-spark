@@ -102,6 +102,7 @@ object BaseDBCanalApp {
 
               for (i <- 0 to dataArr.size() - 1) {
                 val dataStr: String = dataArr.getString(i)
+                //Thread.sleep(150)
                 MykafkaSink.send(topic, dataStr)
               }
             }

@@ -50,4 +50,7 @@ object MyKafkaUtil {
       ConsumerStrategies.Subscribe[String,String](Array(topic),kafkaParam,offsets))
     dStream
   }
+
+
+
 }

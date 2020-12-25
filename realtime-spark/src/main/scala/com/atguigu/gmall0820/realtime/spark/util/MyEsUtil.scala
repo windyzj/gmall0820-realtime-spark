@@ -54,7 +54,7 @@ object MyEsUtil {
       }
       val bulk: Bulk = bulkBuilder.build()
       val result: BulkResult = jest.execute(bulk)
-      println("已保存：" + result.getItems.size() + "条数据！")
+      println("已保存：" + (result.getItems.size() - result.getFailedItems.size()) + "条数据！")
       jest.close()
     }
   }

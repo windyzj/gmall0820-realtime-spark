@@ -8,7 +8,7 @@ import com.atguigu.gmall0820.realtime.spark.util.{  MySqlUtil, MykafkaSink }
 object DimMysqlToKafka {
 
   def main(args: Array[String]): Unit = {
-    val  dimTables=Array("base_province")
+    val  dimTables=Array("sku_info","user_info","base_province")
     // 读mysql
     for (tableName <- dimTables ) {
       val dataList: util.List[JSONObject] = MySqlUtil.queryList("select * from "+tableName)
@@ -24,9 +24,7 @@ object DimMysqlToKafka {
       MykafkaSink.send("ODS_BASE_DB_C",canalJSONObj.toJSONString)
     }
 
-
-    //
-
+    MykafkaSink.close
 
   }
 
